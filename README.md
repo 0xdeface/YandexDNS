@@ -1,6 +1,6 @@
 # Yandex DNS API v2
 
-This script implements basic function to manage your DNS records with YandexPDD DNS API
+This script implements basic function to manage your DNS records YandexPDD DNS API
   - get records with query 
   - update records with query
   - add new records
