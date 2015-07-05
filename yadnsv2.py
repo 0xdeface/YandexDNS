@@ -100,16 +100,3 @@ class YandexDNS(object):
                     logging.warning(u"не доступен: " + source[key])
 
 
-if __name__ == '__main__':
-    domains = {'0xdeface.pro': 'NJW7BCB5DDSUZT262YVD6S24RASKVT3FILR3RXDUSYEWXAJ6CIOQ',
-               '0xdeface.ru': '7FBCETRWVGOUWCF4S63NLKACP52PVKG4TR3LRCOAMM5QKVPLST5A',
-               '0xdef.ru': 'KDXVJ4FXZQNQMGOWG65TFJO343XAZQSOUINI52UQREGPDT46XWFQ'
-    }
-
-    ip = YandexDNS.get_my_ip()
-    for domain in domains.keys():
-        yad = YandexDNS(domain, domains[domain])
-        rec = yad.list({'type': 'A'})
-        for r in rec:
-            if r["content"] != ip:
-                yad.update({'content': ip}, {'type': 'A'})
