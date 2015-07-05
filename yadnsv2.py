@@ -33,6 +33,27 @@ class YandexDNS(object):
 
 
     def update(self, data, query=None, custom=None):
+        """Обновление записей
+           data = словарь данных которые будут установленны 
+           ключи могут принимать значение 
+           [admin_mail=<email-адрес администратора>]
+           [content=<содержимое записи>]
+           [priority=<приоритет записи>]
+           [weight=<вес SRV-записи>]
+           [port=<порт хоста>]
+           [target=<каноническое имя хоста>]
+           [subdomain=<имя поддомена>]
+           [ttl=<время жизни записи>]
+           [refresh=<время между обновлениями>]
+           [retry=<время между попытками получить записи>]
+           [expire=<предельное время>]
+           [neg_cache=<время кеширования>]
+           query = словарь с запросом выборки записей, в запросе можно использовать описанные выше ключи
+           например можно выбрать только www субдомены {'subdomain':'www'}
+           custom = коллекция выбранных ранее записей, можно использовать для повторной
+           фильтрации.
+           
+        """
         if custom is not None and len(custom):
             records = custom
         else:
@@ -47,6 +68,11 @@ class YandexDNS(object):
             self._send("edit", rec)
 
     def list(self, query):
+    """ Возвращает список известных Яндексу DNS записей 
+        Можно передать словарь query для фильтрации,
+        например получить только записи с определенным содержимым
+        {'content': '127.0.0.1'}
+    """    
         if query is not None:
             return self._query(query)
         return self.records
