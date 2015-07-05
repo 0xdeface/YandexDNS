@@ -1,14 +1,17 @@
 # Yandex DNS API v2
+Скрипт реализует базовые функции по управлению вашими DNS записями над доменами передаными
+яндексу (http://pdd.yandex.ru)
+  Базовый функционал
+  - Получение записей по запросу
+  - Обновление записей по запросу
+  - Добавление новых записей
+  - Получение внешнего адреса из нескольких источников
+  - Логирование недоступных источников, смен адреса и проблем с АПИ
 
-This script implements basic function to manage your DNS records YandexPDD DNS API
-  - get records with query 
-  - update records with query
-  - add new records
-
-## Basic usage
+## Пример использования
     if __name__ == '__main__':
         domains = {'domain.pro': 'TOKENTOKENUZTghDSFSDFAJ6CIOQ',
-                 'domain.ru': 'TOKENTOKETOKWCF4S63NLSDFSDFSDFOAMM5QKVPLST5A',
+                 'domain.ru': 'TOKENTOKETOKWCF4S63NВАЫАЫВАOAMM5QKVPLST5A',
         }
         ip = YandexDNS.get_my_ip()
         for domain in domains.keys():
@@ -18,6 +21,6 @@ This script implements basic function to manage your DNS records YandexPDD DNS A
                 if r["content"] != ip:
                     yad.update({'content': ip}, {'type': 'A'})
 
-this code get all records TYPE:A and update IP adres. I use this for my Dynamic DNS server.
-I add this script to crontab to execute every hours
+Этот код получает все записи с TYPE:A и обновлят для них IP адрес. 
+Я испольхую этот скрипт для работы с домашним сервером для разработки, он исправно служит мне уже больше полугода.
 
