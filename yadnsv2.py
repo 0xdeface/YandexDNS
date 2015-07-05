@@ -72,6 +72,7 @@ class YandexDNS(object):
         Можно передать словарь query для фильтрации,
         например получить только записи с определенным содержимым
         {'content': '127.0.0.1'}
+        
     """    
         if query is not None:
             return self._query(query)
