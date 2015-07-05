@@ -7,8 +7,8 @@ This script implements basic function to manage your DNS records YandexPDD DNS A
 
 ## Basic usage
     if __name__ == '__main__':
-        domains = {'domain.pro': 'TOKENTOKENUZT262YVD6S24RASKVT3FILR3RXDUSYEWXAJ6CIOQ',
-                 'domain.ru': 'TOKENTOKETOKWCF4S63NLKACP52PVKG4TR3LRCOAMM5QKVPLST5A',
+        domains = {'domain.pro': 'TOKENTOKENUZTghDSFSDFAJ6CIOQ',
+                 'domain.ru': 'TOKENTOKETOKWCF4S63NLSDFSDFSDFOAMM5QKVPLST5A',
         }
         ip = YandexDNS.get_my_ip()
         for domain in domains.keys():
